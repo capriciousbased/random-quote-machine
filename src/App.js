@@ -17,18 +17,40 @@ function App() {
     fetchQuote();
   }, []);
 
+  const getNewQuotes = () => {
+    let randIndex = Math.floor(Math.random() * quotes.length);
+    setrandomQuotes(quotes[randIndex]);
+  };
+
   return (
     <div id="quote-box">
-      <div className="quote-item">
+      <div className="quote-item" >
         <div>
           {randomQuotes ? (
             <>
-              <h2>{randomQuotes.text}</h2>
-              <p>-- {randomQuotes.author}</p>
+              <h2 id="text">&quot;{randomQuotes.text}&quot;</h2>
+              <p id="author">-- {randomQuotes.author}</p>
             </>
           ) : (
             <h2>Loading...</h2>
           )}
+        </div>
+        <div className="quote-button">
+          <a id="tweet-quote"
+            href={encodeURI(
+              `https://twitter.com/intent/tweet?text=${randomQuotes.text}&hashtags=thewebdevcoach`
+            )}
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href={encodeURI(
+              `https://tumblr.com/widgets/share/tool?posttype=quote&tag=quotes,text=${randomQuotes.text}&hashtags=thewebdevcoach`
+            )}
+          >
+            <i class="fab fa-tumblr-square"></i>
+          </a>
+          <button id="new-quote" onClick={getNewQuotes}>New Quote</button>
         </div>
       </div>
     </div>
