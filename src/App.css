@@ -1,16 +1,48 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#quote-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(80, 123, 165);
 }
 
+.quote-item {
+  display: flex;
+  row-gap: 1.5rem;
+  flex-direction: column;
+  border: 2px dodgerblue solid;
+  padding: 15px;
+  margin: 5rem;
+  border-radius: 25px;
+  background: whitesmoke;
+  width: 50%;
+  height: 40%;
+  box-shadow: 10px 10px;
+  justify-content: center;
+}
+
+.quote-item p {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  justify-content: flex-end;
+}
+@media only screen and (max-width: 980px) {
+  .quote-item {
+    width: 65%;
+    height: 45%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .quote-item {
+    width: 85%;
+    height: 65%;
+  }
+}

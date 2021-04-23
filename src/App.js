@@ -18,14 +18,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App" id="quote-box">
-      <h1>Random Quote Machine</h1>
-      {quotes.map((quote) => (
-        <>
-          <p>{quote.text}</p>
-          <p>{quote.author}</p>
-        </>
-      ))}
+    <div id="quote-box">
+      <div className="quote-item">
+        <div>
+          {randomQuotes ? (
+            <>
+              <h2>{randomQuotes.text}</h2>
+              <p>-- {randomQuotes.author}</p>
+            </>
+          ) : (
+            <h2>Loading...</h2>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
